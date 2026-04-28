@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://jakarta.ee/jsf/html"
+      xmlns:f="http://jakarta.ee/jsf/core">
+<h:head>
+    <title>Registro Aspirante</title>
+</h:head>
+<h:body>
+
+<h1>Registro de Aspirante</h1>
+
+<h:form>
+
+    <p>
+        <h:outputLabel value="Identificacion: "/>
+        <h:inputText id="numeroIde" value="#{aspiranteBean.aspirante.numeroIde}" required="true"
+                     requiredMessage="La identificacion es requerida."/>
+        <h:message for="numeroIde"/>
+    </p>
+
+    <p>
+        <h:outputLabel value="Nombres: "/>
+        <h:inputText id="nombre" value="#{aspiranteBean.aspirante.nombre}" required="true"
+                     requiredMessage="El nombre es requerido."/>
+        <h:message for="nombre"/>
+    </p>
+
+    <p>
+        <h:outputLabel value="Apellidos: "/>
+        <h:inputText id="apellido" value="#{aspiranteBean.aspirante.apellido}" required="true"
+                     requiredMessage="El apellido es requerido."/>
+        <h:message for="apellido"/>
+    </p>
+
+    <p>
+        <h:outputLabel value="Correo: "/>
+        <h:inputText id="correo" value="#{aspiranteBean.aspirante.correo}" required="true"
+                     requiredMessage="El correo es requerido."/>
+        <h:message for="correo"/>
+    </p>
+
+    <p>
+        <h:outputLabel value="Telefono: "/>
+        <h:inputText id="telefono" value="#{aspiranteBean.aspirante.telefono}" required="true"
+                     requiredMessage="El telefono es requerido."/>
+        <h:message for="telefono"/>
+    </p>
+
+    <p>
+        <h:outputLabel value="Programa: "/>
+        <h:selectOneMenu id="programa" value="#{aspiranteBean.aspirante.programa}" required="true"
+                         requiredMessage="Debe seleccionar un programa.">
+            <f:selectItem itemLabel="-- Seleccione un programa --" itemValue="" noSelectionOption="true"/>
+            <f:selectItems value="#{aspiranteBean.listaProgramas}" var="p"
+                           itemLabel="#{p.nombre}" itemValue="#{p}"/>
+            <!-- <f:converter converterId="programaConverter"/> -->
+        </h:selectOneMenu>
+        <h:message for="programa"/>
+    </p>
+
+    <p>
+        <h:commandButton value="Registrar" action="#{aspiranteBean.registrar()}"/>
+    </p>
+
+</h:form>
+
+<br/>
+<a href="../index.xhtml">Volver al menu principal</a>
+
+<footer>
+    Thomas Diaz - Universidad Distrital - 2026
+</footer>
+
+</h:body>
+</html>

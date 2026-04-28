@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://jakarta.ee/jsf/html"
+      xmlns:f="http://jakarta.ee/jsf/core">
+<h:head>
+    <title>Lista de Aspirantes</title>
+</h:head>
+<h:body>
+
+<h1>Listado de Aspirantes</h1>
+
+<h:dataTable value="#{aspiranteBean.listaAspirantes}" var="a" border="1">
+
+    <h:column>
+        <f:facet name="header">ID</f:facet>
+        #{a.numeroIde}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Nombre</f:facet>
+        #{a.nombre}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Apellido</f:facet>
+        #{a.apellido}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Correo</f:facet>
+        #{a.correo}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Telefono</f:facet>
+        #{a.telefono}
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">Programa</f:facet>
+        #{a.programa.nombre}
+    </h:column>
+
+</h:dataTable>
+
+<br/>
+<a href="registro.xhtml">Registrar nuevo aspirante</a>
+<br/>
+<a href="../index.xhtml">Volver al menu principal</a>
+
+<footer>
+    Thomas Diaz - Universidad Distrital - 2026
+</footer>
+
+</h:body>
+</html>
